@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>The Maths Behind a Space Marine Chainsword Attacking a Terminator | Travis Writes</title>
+<meta name="keywords" content="Warhammer 40,000, Maths, Probability, Space Marines">
+<meta name="description" content="A probability breakdown of a Space Marine attacking a Terminator with an Astartes chainsword in Warhammer 40,000 11th edition.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/chainsword-vs-terminator/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3b1b233a7431613d553d1049bd8c33715025a0eb4e3843b3cf5957512f50d562.css" integrity="sha256-OxsjOnQxYT1VPRBJvYwzcVAloOtOOEOzz1lXUS9Q1WI=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/chainsword-vs-terminator/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Travis Writes (Alt + H)">Travis Writes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/posts/">Posts</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      The Maths Behind a Space Marine Chainsword Attacking a Terminator
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h1>
+    <div class="post-description">
+      A probability breakdown of a Space Marine attacking a Terminator with an Astartes chainsword in Warhammer 40,000 11th edition.
+    </div>
+    <div class="post-meta">
+
+<span title='2026-07-30 17:01:00 +0100 BST'>30 July 2026</span>&nbsp;·&nbsp;<span>5 min</span>
+
+</div>
+  </header> 
+
+  <div class="post-content md-content"><p>How likely is an ordinary Space Marine to damage a Terminator with an Astartes chainsword?</p>
+<p>Terminators are among the toughest infantry in Warhammer 40,000, while the chainsword is one of the most recognisable weapons carried by the Adeptus Astartes. This makes the matchup a useful example for understanding how hit rolls, wound rolls, saving throws, and probability work together.</p>
+<p>This calculation uses the Warhammer 40,000 11th-edition rules and assumes there are no Stratagems, Detachment bonuses, rerolls, character abilities, or other modifiers.</p>
+<p>## Profiles used</p>
+<p>For this example, the Astartes chainsword has the following profile:</p>
+<p>| Attacks | Weapon Skill | Strength | Armour Penetration | Damage |</p>
+<p>| &mdash;&mdash;: | &mdash;&mdash;&mdash;&ndash;: | &mdash;&mdash;-: | &mdash;&mdash;&mdash;&mdash;&mdash;&ndash;: | &mdash;&ndash;: |</p>
+<p>|       4 |           3+ |        4 |                 -1 |      1 |</p>
+<p>The current Space Marine faction material lists the standard Astartes chainsword as four attacks, hitting on a 3+, at Strength 4, AP -1, and Damage 1.</p>
+<p>The Terminator is assumed to have:</p>
+<p>| Toughness | Save | Wounds |</p>
+<p>| &mdash;&mdash;&ndash;: | &mdash;: | &mdash;&ndash;: |</p>
+<p>|         5 |   2+ |      3 |</p>
+<p>Terminators retain their 2+ armour save, Toughness 5, and three wounds, making them highly resistant to low-strength, low-damage attacks.</p>
+<p>## Step 1: Probability of hitting</p>
+<p>The Space Marine has a Weapon Skill of 3+, so each attack hits on a roll of:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>3, 4, 5, or 6
+</span></span></code></pre></div><p>That gives four successful results from six possible results:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Probability of hitting = 4 ÷ 6
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&amp;#x20;                      = 2 ÷ 3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&amp;#x20;                      = 66.7%
+</span></span></code></pre></div><p>With four attacks, the expected number of hits is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>4 × 2/3 = 2.67 hits
+</span></span></code></pre></div><p>This does not mean the Marine will always score 2.67 hits. It means that over many combats, the average will approach approximately 2.67 hits per attack sequence.</p>
+<p>## Step 2: Probability of wounding</p>
+<p>The chainsword has Strength 4, while the Terminator has Toughness 5.</p>
+<p>Because the weapon&rsquo;s Strength is lower than the target&rsquo;s Toughness, the Marine wounds on a 5+.</p>
+<p>The successful results are:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>5 or 6
+</span></span></code></pre></div><p>Therefore:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Probability of wounding = 2 ÷ 6
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&amp;#x20;                        = 1 ÷ 3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&amp;#x20;                        = 33.3%
+</span></span></code></pre></div><p>The expected number of successful wounds before saving throws is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>2.67 × 1/3 = 0.89 wounds
+</span></span></code></pre></div><p>## Step 3: Probability of failing the save</p>
+<p>The Terminator normally has a 2+ armour save.</p>
+<p>The chainsword has AP -1, which reduces the Terminator&rsquo;s effective armour save to 3+.</p>
+<p>The Terminator therefore saves on:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>3, 4, 5, or 6
+</span></span></code></pre></div><p>and fails on:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>1 or 2
+</span></span></code></pre></div><p>The probability of failing the save is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Probability of failed save = 2 ÷ 6
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&amp;#x20;                          = 1 ÷ 3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&amp;#x20;                          = 33.3%
+</span></span></code></pre></div><p>## Probability of one attack causing damage</p>
+<p>To cause damage, a single attack must:</p>
+<p>1. Hit.</p>
+<p>2. Wound.</p>
+<p>3. Pass through the Terminator&rsquo;s armour.</p>
+<p>The probabilities are multiplied together:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>2/3 × 1/3 × 1/3 = 2/27
+</span></span></code></pre></div><p>Therefore:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Probability of one attack causing damage = 7.41%
+</span></span></code></pre></div><p>Each successful attack inflicts one point of damage.</p>
+<p>## Expected damage from one Space Marine</p>
+<p>The Marine makes four attacks:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>4 × 2/27 = 8/27
+</span></span></code></pre></div><p>This gives:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Expected damage = 0.296
+</span></span></code></pre></div><p>Rounded more simply:</p>
+<blockquote>
+<p>One Space Marine with an Astartes chainsword inflicts approximately 0.3 wounds on a Terminator per Fight phase.</p>
+</blockquote>
+<p>In practical terms, one Marine will usually fail to damage the Terminator at all.</p>
+<p>## Can one Marine kill the Terminator?</p>
+<p>A Terminator has three wounds, so the Marine must cause at least three unsaved wounds from four attacks.</p>
+<p>The probability of achieving three or four successful damaging attacks is approximately:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>0.154%
+</span></span></code></pre></div><p>That is roughly:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>1 chance in 651
+</span></span></code></pre></div><p>A lone Marine can technically kill a full-health Terminator with a chainsword, but it is extremely unlikely.</p>
+<p>## What about a five-Marine squad?</p>
+<p>Five Marines make:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>5 × 4 = 20 attacks
+</span></span></code></pre></div><p>The expected damage is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>20 × 2/27 = 1.48 wounds
+</span></span></code></pre></div><p>The probability of causing at least three wounds and killing one full-health Terminator is approximately:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>18.1%
+</span></span></code></pre></div><p>Therefore, a five-Marine squad is still unlikely to kill a Terminator in a single Fight phase using only standard chainswords.</p>
+<p>## What about a ten-Marine squad?</p>
+<p>Ten Marines make:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>10 × 4 = 40 attacks
+</span></span></code></pre></div><p>The expected damage is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>40 × 2/27 = 2.96 wounds
+</span></span></code></pre></div><p>This is almost exactly the three wounds required to kill a Terminator.</p>
+<p>However, expected damage is not the same as the probability of a kill. The probability that the unit causes at least three unsaved wounds is approximately:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>57.7%
+</span></span></code></pre></div><p>A ten-Marine squad therefore has slightly better than even odds of killing one full-health Terminator.</p>
+<p>## Summary</p>
+<p>| Attacker     | Attacks | Expected damage | Chance of killing one Terminator |</p>
+<p>| &mdash;&mdash;&mdash;&mdash; | &mdash;&mdash;: | &mdash;&mdash;&mdash;&mdash;&ndash;: | &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-: |</p>
+<p>| One Marine   |       4 |            0.30 |                            0.15% |</p>
+<p>| Five Marines |      20 |            1.48 |                            18.1% |</p>
+<p>| Ten Marines  |      40 |            2.96 |                            57.7% |</p>
+<p>## Why Terminators are so resilient</p>
+<p>The chainsword performs poorly against a Terminator because it must overcome three separate probability barriers:</p>
+<p>* The Marine hits 66.7% of the time.</p>
+<p>* The chainsword wounds only 33.3% of the time.</p>
+<p>* The Terminator fails its modified save only 33.3% of the time.</p>
+<p>Even though each individual probability may not appear extremely low, multiplying them together reduces the chance of dealing damage to only 7.41% per attack.</p>
+<p>This is why weapons with higher Strength, better Armour Penetration, and greater Damage are far more effective against elite infantry.</p>
+<p>## Conclusion</p>
+<p>An Astartes chainsword is effective against lightly armoured infantry, but a Terminator is a difficult target.</p>
+<p>A single Space Marine causes only about 0.3 expected damage and has almost no realistic chance of killing a full-health Terminator. Even five Marines have less than a one-in-five chance of securing the kill.</p>
+<p>It takes approximately ten ordinary chainsword-wielding Marines to achieve slightly better than even odds of bringing down one Terminator in a single Fight phase.</p>
+<p>The example demonstrates an important probability lesson: in Warhammer 40,000, every additional roll in the attack sequence reduces the likelihood of damage. Strong armour and high Toughness do not merely make a target slightly harder to kill—their effects multiply.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/warhammer-40000/">Warhammer 40,000</a></li>
+      <li><a href="http://localhost:1313/tags/maths/">Maths</a></li>
+      <li><a href="http://localhost:1313/tags/probability/">Probability</a></li>
+      <li><a href="http://localhost:1313/tags/space-marines/">Space Marines</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/posts/my-first-post/">
+    <span class="title">Next »</span>
+    <span>Using AI to Create Better Technical Documentation</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Travis Writes</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

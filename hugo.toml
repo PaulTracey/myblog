@@ -1,0 +1,16 @@
+baseURL = "http://localhost:1313/"
+languageCode = "en-gb"
+title = "Travis Writes"
+theme = "PaperMod"
+
+[params]
+defaultTheme = "auto"
+ShowReadingTime = true
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowToc = true
+
+[params.homeInfoParams]
+Title = "Welcome"
+Content = "Articles about technical writing, AI, documentation, and technology."

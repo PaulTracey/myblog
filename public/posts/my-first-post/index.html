@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Using AI to Create Better Technical Documentation | Travis Writes</title>
+<meta name="keywords" content="AI, Technical Writing, Documentation">
+<meta name="description" content="A practical introduction to using AI as an assistant when planning, drafting, and reviewing technical documentation.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/my-first-post/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5f65922e8dd640caa40ff5e86c55d9a0dc507a34785231d01b63c520ea941927.css" integrity="sha256-X2WSLo3WQMqkD/XobFXZoNxQejR4UjHQG2PFIOqUGSc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/my-first-post/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Travis Writes (Alt + H)">Travis Writes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/posts/">Posts</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      Using AI to Create Better Technical Documentation
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h1>
+    <div class="post-description">
+      A practical introduction to using AI as an assistant when planning, drafting, and reviewing technical documentation.
+    </div>
+    <div class="post-meta">
+
+<span title='2026-07-30 16:55:00 +0100 BST'>30 July 2026</span>&nbsp;·&nbsp;<span>5 min</span>
+
+</div>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table of Contents</span>
+    </summary>
+
+    <div class="inner"><ul>
+            <li>
+                <a href="#start-with-a-clear-documentation-goal" aria-label="Start with a clear documentation goal">Start with a clear documentation goal</a></li>
+            <li>
+                <a href="#collect-the-source-information" aria-label="Collect the source information">Collect the source information</a></li>
+            <li>
+                <a href="#ask-ai-to-organise-the-information" aria-label="Ask AI to organise the information">Ask AI to organise the information</a></li>
+            <li>
+                <a href="#generate-a-first-draft" aria-label="Generate a first draft">Generate a first draft</a></li>
+            <li>
+                <a href="#review-every-technical-claim" aria-label="Review every technical claim">Review every technical claim</a></li>
+            <li>
+                <a href="#ask-ai-to-review-clarity" aria-label="Ask AI to review clarity">Ask AI to review clarity</a></li>
+            <li>
+                <a href="#use-ai-to-adapt-content-for-different-audiences" aria-label="Use AI to adapt content for different audiences">Use AI to adapt content for different audiences</a></li>
+            <li>
+                <a href="#keep-humans-in-the-review-process" aria-label="Keep humans in the review process">Keep humans in the review process</a></li>
+            <li>
+                <a href="#a-reusable-prompt" aria-label="A reusable prompt">A reusable prompt</a></li>
+            <li>
+                <a href="#conclusion" aria-label="Conclusion">Conclusion</a>
+            </li>
+        </ul>
+    </div>
+</details>
+
+  <div class="post-content md-content"><p>Artificial intelligence is changing how technical documentation is created, but its greatest value is not simply generating large amounts of text. Used carefully, AI can help technical writers understand unfamiliar subjects, organise information, identify gaps, and produce clearer first drafts.</p>
+<p>The important principle is that AI should support the documentation process rather than replace technical knowledge, subject-matter expertise, or human review.</p>
+<p>In this article, I will demonstrate a practical workflow for using AI to create a technical document.</p>
+<h2 id="start-with-a-clear-documentation-goal">Start with a clear documentation goal<a hidden class="anchor" aria-hidden="true" href="#start-with-a-clear-documentation-goal">#</a></h2>
+<p>Before asking an AI tool to write anything, define what the document must help the reader achieve.</p>
+<p>For example:</p>
+<blockquote>
+<p>Create a procedure that helps a new administrator configure authentication for a web application.</p>
+</blockquote>
+<p>This is more useful than asking:</p>
+<blockquote>
+<p>Write some documentation about authentication.</p>
+</blockquote>
+<p>A strong documentation goal identifies:</p>
+<ul>
+<li>The intended reader</li>
+<li>The task or subject</li>
+<li>The expected outcome</li>
+<li>The assumed level of knowledge</li>
+</ul>
+<p>This information gives the AI a clearer context and produces a more focused response.</p>
+<h2 id="collect-the-source-information">Collect the source information<a hidden class="anchor" aria-hidden="true" href="#collect-the-source-information">#</a></h2>
+<p>AI should not be treated as the source of truth. Before drafting, gather the authoritative information the document must use.</p>
+<p>This could include:</p>
+<ul>
+<li>Product requirements</li>
+<li>Developer notes</li>
+<li>Jira tickets</li>
+<li>API specifications</li>
+<li>Existing documentation</li>
+<li>Configuration examples</li>
+<li>Subject-matter expert interviews</li>
+<li>Test results</li>
+</ul>
+<p>For a configuration procedure, the source information might include:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>The administrator must enable authentication in config.yaml.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>The supported values are:
+</span></span><span style="display:flex;"><span>- local
+</span></span><span style="display:flex;"><span>- oauth
+</span></span><span style="display:flex;"><span>- saml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>The service must be restarted after the file is changed.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>The administrator can verify the configuration by opening /status.
+</span></span></code></pre></div><p>The quality of the finished document depends heavily on the quality of this source material.</p>
+<h2 id="ask-ai-to-organise-the-information">Ask AI to organise the information<a hidden class="anchor" aria-hidden="true" href="#ask-ai-to-organise-the-information">#</a></h2>
+<p>Once the facts are available, AI can help propose a document structure.</p>
+<p>A useful prompt might be:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Organise the following technical notes into a task-based documentation
+</span></span><span style="display:flex;"><span>outline for a system administrator.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Include:
+</span></span><span style="display:flex;"><span>- Purpose
+</span></span><span style="display:flex;"><span>- Prerequisites
+</span></span><span style="display:flex;"><span>- Configuration steps
+</span></span><span style="display:flex;"><span>- Verification
+</span></span><span style="display:flex;"><span>- Troubleshooting
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Do not invent any commands, values, or product behaviour.
+</span></span></code></pre></div><p>The result might produce an outline such as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>1. Purpose
+</span></span><span style="display:flex;"><span>2. Prerequisites
+</span></span><span style="display:flex;"><span>3. Open the configuration file
+</span></span><span style="display:flex;"><span>4. Select an authentication method
+</span></span><span style="display:flex;"><span>5. Restart the service
+</span></span><span style="display:flex;"><span>6. Verify the configuration
+</span></span><span style="display:flex;"><span>7. Troubleshoot common problems
+</span></span></code></pre></div><p>At this stage, the AI is helping to organise the facts rather than creating new ones.</p>
+<h2 id="generate-a-first-draft">Generate a first draft<a hidden class="anchor" aria-hidden="true" href="#generate-a-first-draft">#</a></h2>
+<p>The next step is to ask AI to turn the approved outline and source information into a draft.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Write a concise configuration procedure using the supplied notes and outline.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Audience: system administrators
+</span></span><span style="display:flex;"><span>Tone: direct and professional
+</span></span><span style="display:flex;"><span>Format: Markdown
+</span></span><span style="display:flex;"><span>Requirements:
+</span></span><span style="display:flex;"><span>- Use numbered steps
+</span></span><span style="display:flex;"><span>- Place commands and file names in code formatting
+</span></span><span style="display:flex;"><span>- Include an expected result
+</span></span><span style="display:flex;"><span>- Do not add unsupported information
+</span></span></code></pre></div><p>AI can quickly produce a workable first draft, but the output should still be treated as unverified.</p>
+<h2 id="review-every-technical-claim">Review every technical claim<a hidden class="anchor" aria-hidden="true" href="#review-every-technical-claim">#</a></h2>
+<p>AI-generated documentation can sound confident even when details are incorrect. Every command, setting, path, value, and expected result should therefore be checked against an authoritative source.</p>
+<p>Review the draft for:</p>
+<ul>
+<li>Incorrect commands</li>
+<li>Invented configuration values</li>
+<li>Missing prerequisites</li>
+<li>Ambiguous instructions</li>
+<li>Unsafe actions</li>
+<li>Unsupported assumptions</li>
+<li>Incorrect terminology</li>
+<li>Missing rollback or recovery information</li>
+</ul>
+<p>A technical writer remains responsible for ensuring that the document is accurate.</p>
+<h2 id="ask-ai-to-review-clarity">Ask AI to review clarity<a hidden class="anchor" aria-hidden="true" href="#ask-ai-to-review-clarity">#</a></h2>
+<p>After verifying the technical details, AI can help identify writing problems.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Review this procedure for clarity and usability.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Identify:
+</span></span><span style="display:flex;"><span>- Ambiguous steps
+</span></span><span style="display:flex;"><span>- Missing expected results
+</span></span><span style="display:flex;"><span>- Unexplained terminology
+</span></span><span style="display:flex;"><span>- Overly long sentences
+</span></span><span style="display:flex;"><span>- Places where a reader might become stuck
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Do not rewrite the document yet.
+</span></span></code></pre></div><p>This approach is useful because it asks the AI to act as a reviewer rather than immediately replacing the content.</p>
+<p>The writer can then decide which suggestions are valid.</p>
+<h2 id="use-ai-to-adapt-content-for-different-audiences">Use AI to adapt content for different audiences<a hidden class="anchor" aria-hidden="true" href="#use-ai-to-adapt-content-for-different-audiences">#</a></h2>
+<p>The same approved technical information may need to be presented differently for different readers.</p>
+<p>For example:</p>
+<ul>
+<li>A developer may need implementation details.</li>
+<li>An administrator may need a configuration procedure.</li>
+<li>A support engineer may need troubleshooting guidance.</li>
+<li>A customer may need a short explanation of the feature.</li>
+<li>A sales team may need a high-level capability summary.</li>
+</ul>
+<p>AI can help create these variations, but each version should remain traceable to the same approved source information.</p>
+<h2 id="keep-humans-in-the-review-process">Keep humans in the review process<a hidden class="anchor" aria-hidden="true" href="#keep-humans-in-the-review-process">#</a></h2>
+<p>A reliable AI-assisted workflow might look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Gather authoritative information
+</span></span><span style="display:flex;"><span>        ↓
+</span></span><span style="display:flex;"><span>Define the audience and goal
+</span></span><span style="display:flex;"><span>        ↓
+</span></span><span style="display:flex;"><span>Use AI to organise the content
+</span></span><span style="display:flex;"><span>        ↓
+</span></span><span style="display:flex;"><span>Generate a first draft
+</span></span><span style="display:flex;"><span>        ↓
+</span></span><span style="display:flex;"><span>Verify every technical claim
+</span></span><span style="display:flex;"><span>        ↓
+</span></span><span style="display:flex;"><span>Review with subject-matter experts
+</span></span><span style="display:flex;"><span>        ↓
+</span></span><span style="display:flex;"><span>Edit for clarity and consistency
+</span></span><span style="display:flex;"><span>        ↓
+</span></span><span style="display:flex;"><span>Approve and publish
+</span></span></code></pre></div><p>AI can make several stages faster, but ownership, verification, and approval remain human responsibilities.</p>
+<h2 id="a-reusable-prompt">A reusable prompt<a hidden class="anchor" aria-hidden="true" href="#a-reusable-prompt">#</a></h2>
+<p>The following prompt can be adapted for many technical documentation tasks:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Create a first draft of a technical procedure using only the information
+</span></span><span style="display:flex;"><span>provided below.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Audience:
+</span></span><span style="display:flex;"><span>[Describe the intended reader]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Goal:
+</span></span><span style="display:flex;"><span>[Describe what the reader must achieve]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Required sections:
+</span></span><span style="display:flex;"><span>- Purpose
+</span></span><span style="display:flex;"><span>- Prerequisites
+</span></span><span style="display:flex;"><span>- Procedure
+</span></span><span style="display:flex;"><span>- Expected result
+</span></span><span style="display:flex;"><span>- Troubleshooting
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Writing requirements:
+</span></span><span style="display:flex;"><span>- Use concise and direct language
+</span></span><span style="display:flex;"><span>- Use numbered steps for actions
+</span></span><span style="display:flex;"><span>- Use consistent terminology
+</span></span><span style="display:flex;"><span>- Clearly distinguish commands, values, and file names
+</span></span><span style="display:flex;"><span>- Do not invent missing technical details
+</span></span><span style="display:flex;"><span>- Mark missing information as [INFORMATION REQUIRED]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Source information:
+</span></span><span style="display:flex;"><span>[Paste the approved technical notes here]
+</span></span></code></pre></div><p>The instruction to mark missing information is particularly important. It is safer for the AI to identify a gap than to fill it with a plausible but incorrect answer.</p>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>AI can be a valuable assistant for technical writers when it is used within a controlled documentation process. It can help organise source material, create initial drafts, review clarity, and adapt approved information for different audiences.</p>
+<p>However, good technical documentation still depends on reliable sources, clear ownership, technical verification, and human judgement.</p>
+<p>The most effective approach is not to ask AI to create documentation from nothing. It is to provide accurate information, clear constraints, and a defined audience—and then use AI to make the documentation process more efficient.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/ai/">AI</a></li>
+      <li><a href="http://localhost:1313/tags/technical-writing/">Technical Writing</a></li>
+      <li><a href="http://localhost:1313/tags/documentation/">Documentation</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/chainsword-vs-terminator/">
+    <span class="title">« Prev</span>
+    <span>The Maths Behind a Space Marine Chainsword Attacking a Terminator</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Travis Writes</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
