@@ -64,9 +64,9 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": {{ .Title | plainify}},
-  "name": "{{ .Title | plainify }}",
-  "description": {{ with .Description | plainify }}{{ . }}{{ else }}{{ .Summary | plainify  }}{{ end -}},
+  "headline": {{ .Title | plainify | jsonify | safeJS }},
+  "name": {{ .Title | plainify | jsonify | safeJS }},
+  "description": {{ with .Description | plainify }}{{ . | jsonify | safeJS }}{{ else }}{{ .Summary | plainify | jsonify | safeJS }}{{ end -}},
   "keywords": [
     {{- if .Params.keywords }}
     {{ range $i, $e := .Params.keywords }}{{ if $i }}, {{ end }}{{ jsonify $e | safeJS }}{{ end }}
@@ -74,24 +74,24 @@
     {{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ jsonify $e | safeJS }}{{ end }}
     {{- end }}
   ],
-  "articleBody": {{ .Content | safeJS | htmlUnescape | plainify }},
+  "articleBody": {{ .Content | htmlUnescape | plainify | jsonify | safeJS }},
   "wordCount" : "{{ .WordCount }}",
-  "inLanguage": {{ .Language.Lang | default "en-us" }},
+  "inLanguage": {{ .Language.Lang | default "en-us" | jsonify | safeJS }},
   {{ if .Params.cover.image -}}
   "image":
     {{- if (ne .Params.cover.relative true) -}}
-    {{ .Params.cover.image | absURL }},
+    {{ .Params.cover.image | absURL | jsonify | safeJS }},
     {{- else -}}
-    {{ (path.Join .RelPermalink .Params.cover.image ) | absURL }},
+    {{ (path.Join .RelPermalink .Params.cover.image ) | absURL | jsonify | safeJS }},
     {{- end}}
   {{- else }}
     {{- $images := partial "templates/_funcs/get-page-images" . -}}
     {{- with index $images 0 -}}
-  "image": {{ .Permalink }},
+  "image": {{ .Permalink | jsonify | safeJS }},
     {{- end }}
   {{- end -}}
-  "datePublished": {{ .PublishDate }},
-  "dateModified": {{ .Lastmod }},
+  "datePublished": {{ .PublishDate | jsonify | safeJS }},
+  "dateModified": {{ .Lastmod | jsonify | safeJS }},
   {{- with (.Params.author | default site.Params.author) }}
   "author":
     {{- if (or (eq (printf "%T" .) "[]string") (eq (printf "%T" .) "[]interface {}")) -}}
@@ -99,26 +99,26 @@
   {{- if $i }}, {{end -}}
   {
     "@type": "Person",
-    "name": {{ $v }}
+    "name": {{ $v | jsonify | safeJS }}
   }
   {{- end }}],
     {{- else -}}
   {
     "@type": "Person",
-    "name": {{ . }}
+    "name": {{ . | jsonify | safeJS }}
   },
     {{- end -}}
   {{- end }}
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": {{ .Permalink | safeHTML }}
+    "@id": {{ .Permalink | jsonify | safeJS }}
   },
   "publisher": {
     "@type": "{{- ( site.Params.schema.publisherType | default "Organization") | title -}}",
-    "name": {{ site.Title }},
+    "name": {{ site.Title | jsonify | safeJS }},
     "logo": {
       "@type": "ImageObject",
-      "url": {{ site.Params.assets.favicon | default "favicon.ico" | absURL }}
+      "url": {{ site.Params.assets.favicon | default "favicon.ico" | absURL | jsonify | safeJS }}
     }
   }
 }
