@@ -69,9 +69,9 @@
   "description": {{ with .Description | plainify }}{{ . }}{{ else }}{{ .Summary | plainify  }}{{ end -}},
   "keywords": [
     {{- if .Params.keywords }}
-    {{ range $i, $e := .Params.keywords }}{{ if $i }}, {{ end }}{{ jsonify $e }}{{ end }}
+    {{ range $i, $e := .Params.keywords }}{{ if $i }}, {{ end }}{{ jsonify $e | safeJS }}{{ end }}
     {{- else }}
-    {{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ jsonify $e }}{{ end }}
+    {{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ jsonify $e | safeJS }}{{ end }}
     {{- end }}
   ],
   "articleBody": {{ .Content | safeJS | htmlUnescape | plainify }},
