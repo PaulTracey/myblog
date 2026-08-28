@@ -1,6 +1,6 @@
 +++
 date = 2026-07-30T16:55:00+01:00
-draft = true
+draft = false
 title = "Using AI to Create Better Technical Documentation"
 description = "A practical introduction to using AI as an assistant when planning, drafting, and reviewing technical documentation."
 tags = ["AI", "Technical Writing", "Documentation"]
