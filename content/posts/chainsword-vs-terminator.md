@@ -1,6 +1,6 @@
 +++
 date = 2026-07-30T17:01:00+01:00
-draft = true
+draft = false
 title = "The Maths Behind a Space Marine Chainsword Attacking a Terminator"
 description = "A probability breakdown of a Space Marine attacking a Terminator with an Astartes chainsword in Warhammer 40,000 11th edition."
 tags = ["Warhammer 40,000", "Maths", "Probability", "Space Marines"]
