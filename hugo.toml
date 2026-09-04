@@ -10,10 +10,17 @@ ShowPostNavLinks = true
 ShowBreadCrumbs = true
 ShowCodeCopyButtons = true
 ShowToc = true
+TocOpen = true
 
 [params.homeInfoParams]
 Title = "Welcome"
 Content = "Articles about technical writing, AI, documentation, and technology."
+
+[params.label]
+text = "DocString.me"
+
+[params.assets]
+favicon = "/favicon.svg"
 
 [[menu.main]]
 identifier = "about"

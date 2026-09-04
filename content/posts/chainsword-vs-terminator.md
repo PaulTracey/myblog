@@ -21,7 +21,7 @@ This calculation uses the Warhammer 40,000 11th-edition rules and assumes there 
 
 
 
-\## Profiles used
+## Profiles used
 
 
 
@@ -57,7 +57,7 @@ Terminators retain their 2+ armour save, Toughness 5, and three wounds, making t
 
 
 
-\## Step 1: Probability of hitting
+## Step 1: Probability of hitting
 
 
 
@@ -105,7 +105,7 @@ This does not mean the Marine will always score 2.67 hits. It means that over ma
 
 
 
-\## Step 2: Probability of wounding
+## Step 2: Probability of wounding
 
 
 
@@ -157,7 +157,7 @@ The expected number of successful wounds before saving throws is:
 
 
 
-\## Step 3: Probability of failing the save
+## Step 3: Probability of failing the save
 
 
 
@@ -209,7 +209,7 @@ Probability of failed save = 2 ÷ 6
 
 
 
-\## Probability of one attack causing damage
+## Probability of one attack causing damage
 
 
 
@@ -253,7 +253,7 @@ Each successful attack inflicts one point of damage.
 
 
 
-\## Expected damage from one Space Marine
+## Expected damage from one Space Marine
 
 
 
@@ -293,7 +293,7 @@ In practical terms, one Marine will usually fail to damage the Terminator at all
 
 
 
-\## Can one Marine kill the Terminator?
+## Can one Marine kill the Terminator?
 
 
 
@@ -329,7 +329,7 @@ A lone Marine can technically kill a full-health Terminator with a chainsword, b
 
 
 
-\## What about a five-Marine squad?
+## What about a five-Marine squad?
 
 
 
@@ -373,7 +373,7 @@ Therefore, a five-Marine squad is still unlikely to kill a Terminator in a singl
 
 
 
-\## What about a ten-Marine squad?
+## What about a ten-Marine squad?
 
 
 
@@ -421,7 +421,7 @@ A ten-Marine squad therefore has slightly better than even odds of killing one f
 
 
 
-\## Summary
+## Summary
 
 
 
@@ -437,7 +437,7 @@ A ten-Marine squad therefore has slightly better than even odds of killing one f
 
 
 
-\## Why Terminators are so resilient
+## Why Terminators are so resilient
 
 
 
@@ -461,7 +461,7 @@ This is why weapons with higher Strength, better Armour Penetration, and greater
 
 
 
-\## Conclusion
+## Conclusion
 
 
 
@@ -478,6 +478,5 @@ It takes approximately ten ordinary chainsword-wielding Marines to achieve sligh
 
 
 The example demonstrates an important probability lesson: in Warhammer 40,000, every additional roll in the attack sequence reduces the likelihood of damage. Strong armour and high Toughness do not merely make a target slightly harder to kill—their effects multiply.
-
 
 
