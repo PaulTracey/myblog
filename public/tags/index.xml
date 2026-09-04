@@ -1,1 +1,61 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Tags on Travis Writes</title><link>https://travis-writes.pages.dev/tags/</link><description>Recent content in Tags on Travis Writes</description><generator>Hugo</generator><language>en-gb</language><atom:link href="https://travis-writes.pages.dev/tags/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on DocString.me</title>
+    <link>http://localhost:51390/tags/</link>
+    <description>Recent content in Tags on DocString.me</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 30 Jul 2026 17:01:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:51390/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Maths</title>
+      <link>http://localhost:51390/tags/maths/</link>
+      <pubDate>Thu, 30 Jul 2026 17:01:00 +0100</pubDate>
+      <guid>http://localhost:51390/tags/maths/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Probability</title>
+      <link>http://localhost:51390/tags/probability/</link>
+      <pubDate>Thu, 30 Jul 2026 17:01:00 +0100</pubDate>
+      <guid>http://localhost:51390/tags/probability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Space Marines</title>
+      <link>http://localhost:51390/tags/space-marines/</link>
+      <pubDate>Thu, 30 Jul 2026 17:01:00 +0100</pubDate>
+      <guid>http://localhost:51390/tags/space-marines/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Warhammer 40,000</title>
+      <link>http://localhost:51390/tags/warhammer-40000/</link>
+      <pubDate>Thu, 30 Jul 2026 17:01:00 +0100</pubDate>
+      <guid>http://localhost:51390/tags/warhammer-40000/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI</title>
+      <link>http://localhost:51390/tags/ai/</link>
+      <pubDate>Thu, 30 Jul 2026 16:55:00 +0100</pubDate>
+      <guid>http://localhost:51390/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Documentation</title>
+      <link>http://localhost:51390/tags/documentation/</link>
+      <pubDate>Thu, 30 Jul 2026 16:55:00 +0100</pubDate>
+      <guid>http://localhost:51390/tags/documentation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Technical Writing</title>
+      <link>http://localhost:51390/tags/technical-writing/</link>
+      <pubDate>Thu, 30 Jul 2026 16:55:00 +0100</pubDate>
+      <guid>http://localhost:51390/tags/technical-writing/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

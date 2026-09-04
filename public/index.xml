@@ -1,1 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Travis Writes</title><link>https://travis-writes.pages.dev/</link><description>Recent content on Travis Writes</description><generator>Hugo</generator><language>en-gb</language><atom:link href="https://travis-writes.pages.dev/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>DocString.me</title>
+    <link>http://localhost:51390/</link>
+    <description>Recent content on DocString.me</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 30 Jul 2026 17:01:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:51390/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Maths Behind a Space Marine Chainsword Attacking a Terminator</title>
+      <link>http://localhost:51390/posts/chainsword-vs-terminator/</link>
+      <pubDate>Thu, 30 Jul 2026 17:01:00 +0100</pubDate>
+      <guid>http://localhost:51390/posts/chainsword-vs-terminator/</guid>
+      <description>A probability breakdown of a Space Marine attacking a Terminator with an Astartes chainsword in Warhammer 40,000 11th edition.</description>
+    </item>
+    <item>
+      <title>Using AI to Create Better Technical Documentation</title>
+      <link>http://localhost:51390/posts/my-first-post/</link>
+      <pubDate>Thu, 30 Jul 2026 16:55:00 +0100</pubDate>
+      <guid>http://localhost:51390/posts/my-first-post/</guid>
+      <description>A practical introduction to using AI as an assistant when planning, drafting, and reviewing technical documentation.</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:51390/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:51390/about/</guid>
+      <description>About DocString.me</description>
+    </item>
+    <item>
+      <title>Contact</title>
+      <link>http://localhost:51390/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:51390/contact/</guid>
+      <description>Get in touch with DocString.me</description>
+    </item>
+  </channel>
+</rss>

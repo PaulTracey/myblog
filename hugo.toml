@@ -1,6 +1,6 @@
 baseURL = "http://localhost:1313/"
 languageCode = "en-gb"
-title = "Travis Writes"
+title = "DocString.me"
 theme = "PaperMod"
 
 [params]
@@ -14,3 +14,15 @@ ShowToc = true
 [params.homeInfoParams]
 Title = "Welcome"
 Content = "Articles about technical writing, AI, documentation, and technology."
+
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/about/"
+weight = 10
+
+[[menu.main]]
+identifier = "contact"
+name = "Contact"
+url = "/contact/"
+weight = 20

@@ -1,0 +1,128 @@
+:root {
+    --theme: #f7f5f3;
+    --entry: #fffdfc;
+    --primary: #29242a;
+    --secondary: #716871;
+    --tertiary: #f8e4ee;
+    --content: #29242a;
+    --code-bg: #f4edf1;
+    --border: #e8dfe4;
+    --accent: #b83f78;
+    --accent-soft: #f8e4ee;
+    --heading: #553047;
+}
+
+:root[data-theme="dark"] {
+    --theme: #211c20;
+    --entry: #2b2429;
+    --primary: #f4edf1;
+    --secondary: #c1b3bc;
+    --tertiary: #49333f;
+    --content: #e8dfe4;
+    --code-bg: #352b31;
+    --border: #493c44;
+    --accent: #ef91bd;
+    --accent-soft: #49303d;
+    --heading: #f4c7dc;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--heading);
+}
+
+.post-single {
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px 40px;
+    box-shadow: 0 8px 28px rgb(85 48 71 / 6%);
+}
+
+.post-content {
+    max-width: 720px;
+    margin-inline: auto;
+    font-size: 1.08rem;
+    line-height: 1.75;
+}
+
+.home-info {
+    min-height: 220px;
+    margin-bottom: var(--gap);
+}
+
+.post-title {
+    font-size: 2.35rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.post-content h2 {
+    position: relative;
+    margin-top: 2.2em;
+}
+
+.post-content h2::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.post-content a,
+.breadcrumbs,
+.breadcrumbs a,
+.post-meta a {
+    color: var(--accent);
+}
+
+.post-content a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.post-content blockquote {
+    background: var(--accent-soft);
+    border-inline-start: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 14px 18px;
+}
+
+.post-meta {
+    color: var(--secondary);
+}
+
+.menu .active {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+}
+
+.post-tags a,
+.button {
+    background: var(--accent-soft);
+    border-color: var(--border);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+@media screen and (max-width: 768px) {
+    .post-single {
+        padding: 24px 20px;
+    }
+
+    .home-info {
+        min-height: 170px;
+    }
+}
