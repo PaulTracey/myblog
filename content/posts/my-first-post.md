@@ -1,243 +1,126 @@
 +++
-date = 2026-07-30T16:55:00+01:00
+date = 2026-09-06T16:55:00+01:00
 draft = false
-title = "Using AI to Create Better Technical Documentation"
-description = "A practical introduction to using AI as an assistant when planning, drafting, and reviewing technical documentation."
+title = "Preparing Documentation for AI: Searchability, Structure, and Retrievability"
+description = "A practical introduction to preparing documetation for an AI Audience"
 tags = ["AI", "Technical Writing", "Documentation"]
 categories = ["Technical Writing"]
 +++
 
-Artificial intelligence is changing how technical documentation is created, but its greatest value is not simply generating large amounts of text. Used carefully, AI can help technical writers understand unfamiliar subjects, organise information, identify gaps, and produce clearer first drafts.
+## Introduction: Audience Analysis
 
-The important principle is that AI should support the documentation process rather than replace technical knowledge, subject-matter expertise, or human review.
+When defining the audience for customer documentation, we increasingly need to consider AI agents alongside the different types of human reader. This does not mean writing documentation for machines instead of humans. It does, however, mean considering how we can prepare AI-optimised documentation that remains clear and useful for human readers.
 
-In this article, I will demonstrate a practical workflow for using AI to create a technical document.
+AI-powered tools can search (Azure AI Search), retrieve (Pinecone), interpret (ChatGPT), and present information (Microsoft Copilot) from that same content. In many cases, users may simply provide documentation directly to a Large Language Model (LLM) and ask questions about it.
 
-## Start with a clear documentation goal
+The quality of the answer will depend partly on the capabilities of the model, but also on the quality of the source material it has been given. Clear, well-structured documentation provides better context for an LLM to work with, while ambiguous, inconsistent, or poorly organised content can make it more difficult for the model to identify and communicate the correct information.
 
-Before asking an AI tool to write anything, define what the document must help the reader achieve.
 
-For example:
+ [![Audiences](/images/audience.png)](/images/audience.png)
 
-> Create a procedure that helps a new administrator configure authentication for a web application.
+> *The fundamental problem of communication is that of reproducing at one point either* 
+> *exactly or approximately a message selected at another point.*
+>
+> — *Claude Shannon, 1948*
 
-This is more useful than asking:
 
-> Write some documentation about authentication.
+## Optimising Documentation for Audiences
 
-A strong documentation goal identifies:
+The following sections explore how documentation can be designed from the outset to improve clarity, searchability, and retrieval while also making more efficient use of an AI system's available context.
 
-* The intended reader
-* The task or subject
-* The expected outcome
-* The assumed level of knowledge
+Established approaches to technical communication already emphasise information organisation, findability, and user intent. IBM's Developing Quality Technical Information identifies organization and retrievability among the characteristics of high-quality technical information. The Diátaxis framework approaches the problem from a different direction, organising documentation around four distinct user needs: tutorials, how-to guides, reference, and explanation.
 
-This information gives the AI a clearer context and produces a more focused response.
+AI-assisted documentation does not make these principles obsolete. Instead, it introduces new ways in which information is discovered and consumed. For this reason, I use three related characteristics throughout this article: searchability, structure, and retrievability.
 
-## Collect the source information
+Here, searchability describes how readily relevant information can be located, structure describes how that information is organised into meaningful units, and retrievability describes how readily the specific information required to answer a question can be isolated and returned.
 
-AI should not be treated as the source of truth. Before drafting, gather the authoritative information the document must use.
+### Searchability
 
-This could include:
+Searchability describes how easily a human reader or information system can locate content that is likely to contain the answer they need.
 
-* Product requirements
-* Developer notes
-* Jira tickets
-* API specifications
-* Existing documentation
-* Configuration examples
-* Subject-matter expert interviews
-* Test results
+Good searchability depends on clear signals. Use descriptive page titles and headings, consistent terminology, and explicit identifiers such as product names, API endpoints, configuration values, and error codes. Metadata such as descriptions, tags, and version information can also improve how content is indexed and surfaced.
 
-For a configuration procedure, the source information might include:
-
-```text
-The administrator must enable authentication in config.yaml.
-
-The supported values are:
-- local
-- oauth
-- saml
-
-The service must be restarted after the file is changed.
-
-The administrator can verify the configuration by opening /status.
-```
-
-The quality of the finished document depends heavily on the quality of this source material.
-
-## Ask AI to organise the information
-
-Once the facts are available, AI can help propose a document structure.
-
-A useful prompt might be:
-
-```text
-Organise the following technical notes into a task-based documentation
-outline for a system administrator.
-
-Include:
-- Purpose
-- Prerequisites
-- Configuration steps
-- Verification
-- Troubleshooting
-
-Do not invent any commands, values, or product behaviour.
-```
-
-The result might produce an outline such as:
-
-```text
-1. Purpose
-2. Prerequisites
-3. Open the configuration file
-4. Select an authentication method
-5. Restart the service
-6. Verify the configuration
-7. Troubleshoot common problems
-```
-
-At this stage, the AI is helping to organise the facts rather than creating new ones.
-
-## Generate a first draft
-
-The next step is to ask AI to turn the approved outline and source information into a draft.
+Search engines do more than simply match words. Elasticsearch, for example, uses the BM25 ranking algorithm by default. BM25 considers factors such as how frequently a term appears, how distinctive that term is across the wider document collection, and the length of the field being searched. Search implementations can also give greater weight to particular fields, such as titles or headings.
 
 For example:
 
-```text
-Write a concise configuration procedure using the supplied notes and outline.
+``Authentication``
 
-Audience: system administrators
-Tone: direct and professional
-Format: Markdown
-Requirements:
-- Use numbered steps
-- Place commands and file names in code formatting
-- Include an expected result
-- Do not add unsupported information
-```
+provides little context, while:
 
-AI can quickly produce a workable first draft, but the output should still be treated as unverified.
+``Configure OAuth 2.0 authentication for the REST API``
 
-## Review every technical claim
+identifies the task, technology, and scope of the content, giving both human readers and search systems stronger signals.
 
-AI-generated documentation can sound confident even when details are incorrect. Every command, setting, path, value, and expected result should therefore be checked against an authoritative source.
+The unit being indexed also matters. Some systems index complete pages, while others work with sections or smaller chunks. Very large units can dilute relevant information, while very small units may lose useful context. Clearly bounded, topic-focused sections therefore support both traditional search and later AI-based retrieval.
 
-Review the draft for:
+In simple terms, searchability asks:
 
-* Incorrect commands
-* Invented configuration values
-* Missing prerequisites
-* Ambiguous instructions
-* Unsafe actions
-* Unsupported assumptions
-* Incorrect terminology
-* Missing rollback or recovery information
+*Can the reader or system locate content that is likely to contain the answer?*
 
-A technical writer remains responsible for ensuring that the document is accurate.
 
-## Ask AI to review clarity
+### Structure
 
-After verifying the technical details, AI can help identify writing problems.
+Structure refers to how information is organised, grouped, and presented within a document.
 
-For example:
+For human readers, good structure makes information easier to scan, understand, and navigate. For AI systems, structure can also provide useful boundaries between topics and help preserve context when sections of a document are processed independently.
 
-```text
-Review this procedure for clarity and usability.
+This idea is not new. DITA (Darwin Information Typing Architecture) has long promoted topic-based authoring, where information is divided into focused units such as concepts, tasks, and reference topics. Rather than treating documentation as one continuous body of text, DITA encourages authors to create modular topics with a clear purpose and enough context to remain useful when reused elsewhere.
 
-Identify:
-- Ambiguous steps
-- Missing expected results
-- Unexplained terminology
-- Overly long sentences
-- Places where a reader might become stuck
+These principles map well to AI-assisted documentation. Retrieval systems commonly divide source documents into smaller units, or chunks, before indexing them for later retrieval. A chunk may contain a paragraph, section, or another bounded piece of content depending on how the system is configured.
 
-Do not rewrite the document yet.
-```
+If the original documentation already has clear topic boundaries, meaningful headings, and sufficient local context, those chunks are more likely to remain useful when separated from the full page. Poor structure can have the opposite effect: a chunk may contain an instruction without its prerequisite, a value without the parameter it refers to, or an explanation that depends on a heading several sections earlier.
 
-This approach is useful because it asks the AI to act as a reviewer rather than immediately replacing the content.
+When designing structure, consider the following questions:
 
-The writer can then decide which suggestions are valid.
+What belongs together? Group closely related concepts, instructions, examples, and reference information so that the meaning is preserved when the content is read independently.
+Where should information be divided? Use descriptive headings and subsections to create natural boundaries between different concepts, tasks, and stages of a process.
+When is additional context required? Keep prerequisites, conditions, constraints, and warnings close to the information that depends on them.
+How should the information be presented? Use numbered steps for procedures, tables for comparison, lists for discrete items, and code blocks for commands or examples.
+Who needs to understand the section? A section should provide enough context to remain useful even when the reader, human or machine, has not consumed the entire document from beginning to end.
 
-## Use AI to adapt content for different audiences
+Consider the following sentence:
 
-The same approved technical information may need to be presented differently for different readers.
+Set it to true to enable the feature.
 
-For example:
+It is concise, but it relies entirely on surrounding context. If the sentence appears in a retrieved chunk without the preceding material, its meaning is lost.
 
-* A developer may need implementation details.
-* An administrator may need a configuration procedure.
-* A support engineer may need troubleshooting guidance.
-* A customer may need a short explanation of the feature.
-* A sales team may need a high-level capability summary.
+A more self-contained version is:
 
-AI can help create these variations, but each version should remain traceable to the same approved source information.
+Set automatic_token_renewal to true to enable automatic token renewal.
 
-## Keep humans in the review process
+The second version is slightly longer, but it preserves the identity of both the setting and the action. This illustrates an important point: shorter content is not necessarily more efficient content. A slightly longer, self-contained section may require less additional context to be retrieved before it can be understood.
 
-A reliable AI-assisted workflow might look like this:
+DITA and modern AI retrieval therefore arrive at a similar design principle from different directions: information is more useful when it is organised into focused, meaningful units.
 
-```text
-Gather authoritative information
-        ↓
-Define the audience and goal
-        ↓
-Use AI to organise the content
-        ↓
-Generate a first draft
-        ↓
-Verify every technical claim
-        ↓
-Review with subject-matter experts
-        ↓
-Edit for clarity and consistency
-        ↓
-Approve and publish
-```
+Good structure does not mean making every section as small as possible. It means creating boundaries that preserve meaning, context, and relationships between pieces of information.
 
-AI can make several stages faster, but ownership, verification, and approval remain human responsibilities.
+The central question for structure is:
 
-## A reusable prompt
+Is the information organised into meaningful units that can still be understood when separated from the wider document?
 
-The following prompt can be adapted for many technical documentation tasks:
+### Retrievability
 
-```text
-Create a first draft of a technical procedure using only the information
-provided below.
+**Retrievability** refers to how readily the specific information required to answer a question can be identified, isolated, and returned.
 
-Audience:
-[Describe the intended reader]
+This differs slightly from searchability. Searchability helps locate content that is likely to contain the answer; retrievability is about returning the precise information needed, with enough context for it to remain useful.
 
-Goal:
-[Describe what the reader must achieve]
+In AI-assisted documentation, retrieval may rely on traditional search indexes, vector indexes for semantic similarity, and metadata that helps narrow the search space. Structured formats such as JSON can also carry useful fields such as product name, version, content type, platform, or topic identifier.
 
-Required sections:
-- Purpose
-- Prerequisites
-- Procedure
-- Expected result
-- Troubleshooting
+For example, a search system may successfully locate a long page about authentication. Good retrievability means it can then isolate the specific passage that answers a question such as:
 
-Writing requirements:
-- Use concise and direct language
-- Use numbered steps for actions
-- Use consistent terminology
-- Clearly distinguish commands, values, and file names
-- Do not invent missing technical details
-- Mark missing information as [INFORMATION REQUIRED]
+`Set automatic_token_renewal to true to enable automatic token renewal.`
 
-Source information:
-[Paste the approved technical notes here]
-```
+When writing for retrievability:
 
-The instruction to mark missing information is particularly important. It is safer for the AI to identify a gap than to fill it with a plausible but incorrect answer.
+* Keep related information together.
+* Make versions, platforms, and prerequisites explicit.
+* Avoid vague references such as `it`, `this option`, or `the value above`.
+* Use consistent terminology and useful metadata.
+* Reduce duplication and contradictory content.
 
-## Conclusion
+The technical writer may not control how indexes or retrieval systems are implemented, but clear structure, consistent metadata, and self-contained content make those systems more effective.
 
-AI can be a valuable assistant for technical writers when it is used within a controlled documentation process. It can help organise source material, create initial drafts, review clarity, and adapt approved information for different audiences.
+The central question is:
 
-However, good technical documentation still depends on reliable sources, clear ownership, technical verification, and human judgement.
-
-The most effective approach is not to ask AI to create documentation from nothing. It is to provide accurate information, clear constraints, and a defined audience—and then use AI to make the documentation process more efficient.
+**Can the system return the exact information needed, with enough context for it to be accurate and useful?**

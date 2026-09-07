@@ -2,53 +2,53 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:51390/categories/</loc>
+    <loc>http://localhost:1313/tags/ai/</loc>
+    <lastmod>2026-09-06T16:55:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2026-09-06T16:55:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-09-06T16:55:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/documentation/</loc>
+    <lastmod>2026-09-06T16:55:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-09-06T16:55:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/my-first-post/</loc>
+    <lastmod>2026-09-06T16:55:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-09-06T16:55:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/technical-writing/</loc>
+    <lastmod>2026-09-06T16:55:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/technical-writing/</loc>
+    <lastmod>2026-09-06T16:55:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/maths/</loc>
     <lastmod>2026-07-30T17:01:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:51390/</loc>
+    <loc>http://localhost:1313/tags/probability/</loc>
     <lastmod>2026-07-30T17:01:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:51390/tags/maths/</loc>
+    <loc>http://localhost:1313/tags/space-marines/</loc>
     <lastmod>2026-07-30T17:01:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:51390/posts/</loc>
+    <loc>http://localhost:1313/categories/tabletop-gaming/</loc>
     <lastmod>2026-07-30T17:01:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:51390/tags/probability/</loc>
+    <loc>http://localhost:1313/posts/chainsword-vs-terminator/</loc>
     <lastmod>2026-07-30T17:01:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:51390/tags/space-marines/</loc>
+    <loc>http://localhost:1313/tags/warhammer-40000/</loc>
     <lastmod>2026-07-30T17:01:00+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:51390/categories/tabletop-gaming/</loc>
-    <lastmod>2026-07-30T17:01:00+01:00</lastmod>
+    <loc>http://localhost:1313/about/</loc>
   </url><url>
-    <loc>http://localhost:51390/tags/</loc>
-    <lastmod>2026-07-30T17:01:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:51390/posts/chainsword-vs-terminator/</loc>
-    <lastmod>2026-07-30T17:01:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:51390/tags/warhammer-40000/</loc>
-    <lastmod>2026-07-30T17:01:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:51390/tags/ai/</loc>
-    <lastmod>2026-07-30T16:55:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:51390/tags/documentation/</loc>
-    <lastmod>2026-07-30T16:55:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:51390/categories/technical-writing/</loc>
-    <lastmod>2026-07-30T16:55:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:51390/tags/technical-writing/</loc>
-    <lastmod>2026-07-30T16:55:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:51390/posts/my-first-post/</loc>
-    <lastmod>2026-07-30T16:55:00+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:51390/about/</loc>
-  </url><url>
-    <loc>http://localhost:51390/contact/</loc>
+    <loc>http://localhost:1313/contact/</loc>
   </url>
 </urlset>
