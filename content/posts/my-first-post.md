@@ -124,3 +124,158 @@ The technical writer may not control how indexes or retrieval systems are implem
 The central question is:
 
 **Can the system return the exact information needed, with enough context for it to be accurate and useful?**
+
+
+
+# Testing AI-Readiness
+
+Designing documentation for searchability, structure, and retrievability is only part of the process. These characteristics should also be tested.
+
+Testing does not necessarily require a complex AI evaluation platform. A useful starting point is to create a representative set of questions, search terms, and user tasks, and then examine whether the documentation allows the correct information to be found, isolated, and understood.
+
+The same three characteristics used to design the documentation can therefore also provide a simple framework for evaluating it.
+
+### Testing Searchability
+
+Create a small set of realistic questions or search queries based on things users might actually ask.
+
+For example:
+
+* How do I enable automatic token renewal?
+* What setting controls token renewal?
+* How do I configure OAuth 2.0 for the REST API?
+* Does automatic token renewal work on version X?
+
+Then check whether the correct page or section appears near the top of the results.
+
+Testing only exact terminology is insufficient. A user might search for "renew access token automatically" even though the documentation uses `automatic_token_renewal`.
+
+It is therefore useful to test several types of query, including:
+
+* exact keyword searches;
+* natural-language questions;
+* alternative terminology;
+* product or feature names;
+* identifiers such as API endpoints, configuration parameters, and error codes.
+
+The objective is not necessarily for every query to return exactly the same result. Instead, the relevant documentation should be sufficiently well described and indexed that reasonable variations of the same information need still lead the user towards the correct content.
+
+This type of testing can be performed using the documentation site's existing search functionality, an enterprise search system, or the search component used by an AI retrieval system.
+
+A simple test might record the query, the expected result, and the position at which that result appeared.
+
+| Query                          | Expected result             | Position |
+| ------------------------------ | --------------------------- | -------- |
+| enable automatic token renewal | Token renewal configuration | 1        |
+| renew token automatically      | Token renewal configuration | 2        |
+| `automatic_token_renewal`      | Parameter reference         | 1        |
+
+If relevant documentation repeatedly fails to appear for reasonable queries, the problem may lie in page titles, headings, terminology, metadata, content organisation, or the search implementation itself.
+
+The central testing question is:
+
+**Can users and systems reliably locate the content that is likely to contain the answer?**
+
+### Testing Structure
+
+Structure can be tested by examining documentation outside the context of the complete page.
+
+Take a section of content and ask whether it can still be understood when the surrounding sections are removed. This approximates what may happen when an AI retrieval system divides a document into chunks and returns only the sections considered relevant to a question.
+
+Look for information that depends unnecessarily on distant context.
+
+For example:
+
+`Set it to true to enable the feature.`
+
+If this sentence is retrieved independently, neither `it` nor `the feature` provides enough information to identify what the instruction refers to.
+
+Compare this with:
+
+`Set automatic_token_renewal to true to enable automatic token renewal.`
+
+The second version retains its meaning even when separated from the surrounding documentation.
+
+When testing individual sections, consider the following questions:
+
+* Is the subject of the section clear?
+* Are important product names, settings, parameters, or features explicitly identified?
+* Are prerequisites close to the instructions that depend on them?
+* Are warnings and constraints attached to the relevant task?
+* Do examples contain enough information to explain what they demonstrate?
+* Does the section depend heavily on phrases such as `this`, `it`, `above`, or `the following option`?
+* Would the section still make sense if it were returned without the preceding paragraph?
+
+Headings should also be considered. A heading may provide important context to a human reader viewing the complete page, but some retrieval systems may not always preserve that context in the same way.
+
+For example, a section headed:
+
+`Automatic token renewal`
+
+followed by:
+
+`Set it to true.`
+
+may appear understandable on the page but becomes ambiguous if the sentence is separated from its heading.
+
+Testing structure therefore means treating sections as potentially independent information units rather than assuming that every reader or system will consume the page sequentially.
+
+The central testing question is:
+
+**Does the information retain its meaning when separated from the wider document?**
+
+### Testing Retrievability
+
+Retrievability can be tested by creating a set of questions for which the expected answers are already known.
+
+These can be treated as a small reference set of questions representing common user information needs.
+
+For each question, identify both the expected answer and the section of documentation that contains it.
+
+For example:
+
+| Question                                           | Expected source             | Correct content retrieved? | Enough context? |
+| -------------------------------------------------- | --------------------------- | -------------------------- | --------------- |
+| How do I enable automatic token renewal?           | Token renewal configuration | Yes                        | Yes             |
+| What is the default value?                         | Parameter reference         | Yes                        | No              |
+| Is automatic token renewal supported in version X? | Version compatibility       | No                         | —               |
+
+The retrieved information can then be evaluated independently of the final AI-generated answer.
+
+Ask:
+
+* Was the correct passage retrieved?
+* Was unnecessary or unrelated content also returned?
+* Did the passage contain enough context to answer the question?
+* Were version, platform, and product constraints preserved?
+* Could the question be answered accurately using only the retrieved information?
+
+An LLM can also be used as part of the test. Provide only the retrieved content to the model and ask it to answer the original question. If the model cannot answer accurately despite the documentation containing the correct information elsewhere, this may indicate a retrieval problem rather than a language-model problem.
+
+This distinction is useful when diagnosing failures.
+
+If the correct page cannot be located, investigate **searchability**.
+
+If the correct section is retrieved but loses its meaning when separated from the surrounding page, investigate **structure**.
+
+If the correct page is found but the required information cannot be isolated with sufficient context, investigate **retrievability**.
+
+If the correct and complete information is retrieved but the AI system still produces an incorrect answer, the problem may instead lie further downstream in the AI system.
+
+This type of testing does not replace formal retrieval evaluation, but it provides technical writers with a practical way to assess whether their content is suitable for AI-assisted consumption.
+
+The central testing question is:
+
+**Can the system retrieve the specific information needed to answer the question accurately and with sufficient context?**
+
+## Conclusion
+
+Preparing documentation for an AI audience does not require abandoning established principles of technical communication. Clear organisation, consistent terminology, meaningful topic boundaries, and useful metadata already benefit human readers. AI-assisted search and retrieval make these qualities even more important.
+
+Searchability helps users and systems locate content that is likely to contain an answer. Structure determines whether that content remains understandable when divided into smaller information units. Retrievability determines whether the specific information required can be isolated and returned with enough context to remain accurate and useful.
+
+These characteristics are closely related. Improving one may also improve the others, but they describe different stages in the path between a user's question and the information required to answer it.
+
+Technical writers may not control the search engine, vector database, retrieval pipeline, or language model used to consume their documentation. They do, however, have significant influence over the quality and organisation of the source material those systems depend upon.
+
+AI-ready documentation is therefore not simply documentation written for machines. It is documentation designed so that meaning survives search, extraction, retrieval, and reuse while remaining clear and useful to the human reader.

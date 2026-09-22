@@ -10,7 +10,7 @@
 <meta name="description" content="A practical introduction to preparing documetation for an AI Audience">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/posts/my-first-post/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.c5e95e23cface681df0fc435673bb73f1628691edb17448b4ef1b3664dbc3fd9.css" integrity="sha256-xeleI8&#43;s5oHfD8Q1Zzu3PxYoaR7bF0SLTvGzZk28P9k=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9630436992f71342eaa118cbd5b7dea169d463781332292aa5775bf5f21e390e.css" integrity="sha256-ljBDaZL3E0LqoRjL1bfeoWnUY3gTMikqpXdb9fIeOQ4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.svg">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -132,7 +132,7 @@
     </div>
     <div class="post-meta">
 
-<span title='2026-09-06 16:55:00 +0100 BST'>6 September 2026</span>&nbsp;·&nbsp;<span>7 min</span>
+<span title='2026-09-06 16:55:00 +0100 BST'>6 September 2026</span>&nbsp;·&nbsp;<span>12 min</span>
 
 </div>
   </header> <details class="toc"  open>
@@ -140,7 +140,7 @@
         <span class="title">Table of Contents</span>
     </summary>
 
-    <div class="inner"><ul>
+    <div class="inner"><ul><ul>
             <li>
                 <a href="#introduction-audience-analysis" aria-label="Introduction: Audience Analysis">Introduction: Audience Analysis</a></li>
             <li>
@@ -151,7 +151,22 @@
             <li>
                 <a href="#structure" aria-label="Structure">Structure</a></li>
             <li>
-                <a href="#retrievability" aria-label="Retrievability">Retrievability</a>
+                <a href="#retrievability" aria-label="Retrievability">Retrievability</a></li></ul>
+            </li></ul>
+                
+            <li>
+                <a href="#testing-ai-readiness" aria-label="Testing AI-Readiness">Testing AI-Readiness</a><ul>
+                    <ul>
+                    
+            <li>
+                <a href="#testing-searchability" aria-label="Testing Searchability">Testing Searchability</a></li>
+            <li>
+                <a href="#testing-structure" aria-label="Testing Structure">Testing Structure</a></li>
+            <li>
+                <a href="#testing-retrievability" aria-label="Testing Retrievability">Testing Retrievability</a></li></ul>
+                
+            <li>
+                <a href="#conclusion" aria-label="Conclusion">Conclusion</a>
             </li>
         </ul>
         </li>
@@ -225,6 +240,149 @@ Who needs to understand the section? A section should provide enough context to 
 <p>The technical writer may not control how indexes or retrieval systems are implemented, but clear structure, consistent metadata, and self-contained content make those systems more effective.</p>
 <p>The central question is:</p>
 <p><strong>Can the system return the exact information needed, with enough context for it to be accurate and useful?</strong></p>
+<h1 id="testing-ai-readiness">Testing AI-Readiness<a hidden class="anchor" aria-hidden="true" href="#testing-ai-readiness">#</a></h1>
+<p>Designing documentation for searchability, structure, and retrievability is only part of the process. These characteristics should also be tested.</p>
+<p>Testing does not necessarily require a complex AI evaluation platform. A useful starting point is to create a representative set of questions, search terms, and user tasks, and then examine whether the documentation allows the correct information to be found, isolated, and understood.</p>
+<p>The same three characteristics used to design the documentation can therefore also provide a simple framework for evaluating it.</p>
+<h3 id="testing-searchability">Testing Searchability<a hidden class="anchor" aria-hidden="true" href="#testing-searchability">#</a></h3>
+<p>Create a small set of realistic questions or search queries based on things users might actually ask.</p>
+<p>For example:</p>
+<ul>
+<li>How do I enable automatic token renewal?</li>
+<li>What setting controls token renewal?</li>
+<li>How do I configure OAuth 2.0 for the REST API?</li>
+<li>Does automatic token renewal work on version X?</li>
+</ul>
+<p>Then check whether the correct page or section appears near the top of the results.</p>
+<p>Testing only exact terminology is insufficient. A user might search for &ldquo;renew access token automatically&rdquo; even though the documentation uses <code>automatic_token_renewal</code>.</p>
+<p>It is therefore useful to test several types of query, including:</p>
+<ul>
+<li>exact keyword searches;</li>
+<li>natural-language questions;</li>
+<li>alternative terminology;</li>
+<li>product or feature names;</li>
+<li>identifiers such as API endpoints, configuration parameters, and error codes.</li>
+</ul>
+<p>The objective is not necessarily for every query to return exactly the same result. Instead, the relevant documentation should be sufficiently well described and indexed that reasonable variations of the same information need still lead the user towards the correct content.</p>
+<p>This type of testing can be performed using the documentation site&rsquo;s existing search functionality, an enterprise search system, or the search component used by an AI retrieval system.</p>
+<p>A simple test might record the query, the expected result, and the position at which that result appeared.</p>
+<table>
+	<thead>
+			<tr>
+					<th>Query</th>
+					<th>Expected result</th>
+					<th>Position</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>enable automatic token renewal</td>
+					<td>Token renewal configuration</td>
+					<td>1</td>
+			</tr>
+			<tr>
+					<td>renew token automatically</td>
+					<td>Token renewal configuration</td>
+					<td>2</td>
+			</tr>
+			<tr>
+					<td><code>automatic_token_renewal</code></td>
+					<td>Parameter reference</td>
+					<td>1</td>
+			</tr>
+	</tbody>
+</table>
+<p>If relevant documentation repeatedly fails to appear for reasonable queries, the problem may lie in page titles, headings, terminology, metadata, content organisation, or the search implementation itself.</p>
+<p>The central testing question is:</p>
+<p><strong>Can users and systems reliably locate the content that is likely to contain the answer?</strong></p>
+<h3 id="testing-structure">Testing Structure<a hidden class="anchor" aria-hidden="true" href="#testing-structure">#</a></h3>
+<p>Structure can be tested by examining documentation outside the context of the complete page.</p>
+<p>Take a section of content and ask whether it can still be understood when the surrounding sections are removed. This approximates what may happen when an AI retrieval system divides a document into chunks and returns only the sections considered relevant to a question.</p>
+<p>Look for information that depends unnecessarily on distant context.</p>
+<p>For example:</p>
+<p><code>Set it to true to enable the feature.</code></p>
+<p>If this sentence is retrieved independently, neither <code>it</code> nor <code>the feature</code> provides enough information to identify what the instruction refers to.</p>
+<p>Compare this with:</p>
+<p><code>Set automatic_token_renewal to true to enable automatic token renewal.</code></p>
+<p>The second version retains its meaning even when separated from the surrounding documentation.</p>
+<p>When testing individual sections, consider the following questions:</p>
+<ul>
+<li>Is the subject of the section clear?</li>
+<li>Are important product names, settings, parameters, or features explicitly identified?</li>
+<li>Are prerequisites close to the instructions that depend on them?</li>
+<li>Are warnings and constraints attached to the relevant task?</li>
+<li>Do examples contain enough information to explain what they demonstrate?</li>
+<li>Does the section depend heavily on phrases such as <code>this</code>, <code>it</code>, <code>above</code>, or <code>the following option</code>?</li>
+<li>Would the section still make sense if it were returned without the preceding paragraph?</li>
+</ul>
+<p>Headings should also be considered. A heading may provide important context to a human reader viewing the complete page, but some retrieval systems may not always preserve that context in the same way.</p>
+<p>For example, a section headed:</p>
+<p><code>Automatic token renewal</code></p>
+<p>followed by:</p>
+<p><code>Set it to true.</code></p>
+<p>may appear understandable on the page but becomes ambiguous if the sentence is separated from its heading.</p>
+<p>Testing structure therefore means treating sections as potentially independent information units rather than assuming that every reader or system will consume the page sequentially.</p>
+<p>The central testing question is:</p>
+<p><strong>Does the information retain its meaning when separated from the wider document?</strong></p>
+<h3 id="testing-retrievability">Testing Retrievability<a hidden class="anchor" aria-hidden="true" href="#testing-retrievability">#</a></h3>
+<p>Retrievability can be tested by creating a set of questions for which the expected answers are already known.</p>
+<p>These can be treated as a small reference set of questions representing common user information needs.</p>
+<p>For each question, identify both the expected answer and the section of documentation that contains it.</p>
+<p>For example:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Question</th>
+					<th>Expected source</th>
+					<th>Correct content retrieved?</th>
+					<th>Enough context?</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>How do I enable automatic token renewal?</td>
+					<td>Token renewal configuration</td>
+					<td>Yes</td>
+					<td>Yes</td>
+			</tr>
+			<tr>
+					<td>What is the default value?</td>
+					<td>Parameter reference</td>
+					<td>Yes</td>
+					<td>No</td>
+			</tr>
+			<tr>
+					<td>Is automatic token renewal supported in version X?</td>
+					<td>Version compatibility</td>
+					<td>No</td>
+					<td>—</td>
+			</tr>
+	</tbody>
+</table>
+<p>The retrieved information can then be evaluated independently of the final AI-generated answer.</p>
+<p>Ask:</p>
+<ul>
+<li>Was the correct passage retrieved?</li>
+<li>Was unnecessary or unrelated content also returned?</li>
+<li>Did the passage contain enough context to answer the question?</li>
+<li>Were version, platform, and product constraints preserved?</li>
+<li>Could the question be answered accurately using only the retrieved information?</li>
+</ul>
+<p>An LLM can also be used as part of the test. Provide only the retrieved content to the model and ask it to answer the original question. If the model cannot answer accurately despite the documentation containing the correct information elsewhere, this may indicate a retrieval problem rather than a language-model problem.</p>
+<p>This distinction is useful when diagnosing failures.</p>
+<p>If the correct page cannot be located, investigate <strong>searchability</strong>.</p>
+<p>If the correct section is retrieved but loses its meaning when separated from the surrounding page, investigate <strong>structure</strong>.</p>
+<p>If the correct page is found but the required information cannot be isolated with sufficient context, investigate <strong>retrievability</strong>.</p>
+<p>If the correct and complete information is retrieved but the AI system still produces an incorrect answer, the problem may instead lie further downstream in the AI system.</p>
+<p>This type of testing does not replace formal retrieval evaluation, but it provides technical writers with a practical way to assess whether their content is suitable for AI-assisted consumption.</p>
+<p>The central testing question is:</p>
+<p><strong>Can the system retrieve the specific information needed to answer the question accurately and with sufficient context?</strong></p>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>Preparing documentation for an AI audience does not require abandoning established principles of technical communication. Clear organisation, consistent terminology, meaningful topic boundaries, and useful metadata already benefit human readers. AI-assisted search and retrieval make these qualities even more important.</p>
+<p>Searchability helps users and systems locate content that is likely to contain an answer. Structure determines whether that content remains understandable when divided into smaller information units. Retrievability determines whether the specific information required can be isolated and returned with enough context to remain accurate and useful.</p>
+<p>These characteristics are closely related. Improving one may also improve the others, but they describe different stages in the path between a user&rsquo;s question and the information required to answer it.</p>
+<p>Technical writers may not control the search engine, vector database, retrieval pipeline, or language model used to consume their documentation. They do, however, have significant influence over the quality and organisation of the source material those systems depend upon.</p>
+<p>AI-ready documentation is therefore not simply documentation written for machines. It is documentation designed so that meaning survives search, extraction, retrieval, and reuse while remaining clear and useful to the human reader.</p>
 
 
   </div>

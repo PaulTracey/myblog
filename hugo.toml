@@ -1,5 +1,5 @@
 baseURL = "http://localhost:1313/"
-languageCode = "en-gb"
+locale = "en-GB"
 title = "DocString.me"
 theme = "PaperMod"
 

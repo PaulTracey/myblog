@@ -66,16 +66,6 @@ h6 {
     margin-top: 2.2em;
 }
 
-.post-content h2::before {
-    content: "";
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin-right: 10px;
-    border-radius: 50%;
-    background: var(--accent);
-}
-
 .post-content a,
 .breadcrumbs,
 .breadcrumbs a,

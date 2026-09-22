@@ -5,15 +5,15 @@
     <link>http://localhost:1313/categories/technical-writing/</link>
     <description>Recent content in Technical Writing on DocString.me</description>
     <generator>Hugo</generator>
-    <language>en-gb</language>
-    <lastBuildDate>Thu, 30 Jul 2026 16:55:00 +0100</lastBuildDate>
+    <language>en-GB</language>
+    <lastBuildDate>Sun, 06 Sep 2026 16:55:00 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/technical-writing/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Using AI to Create Better Technical Documentation</title>
+      <title>Preparing Documentation for AI: Searchability, Structure, and Retrievability</title>
       <link>http://localhost:1313/posts/my-first-post/</link>
-      <pubDate>Thu, 30 Jul 2026 16:55:00 +0100</pubDate>
+      <pubDate>Sun, 06 Sep 2026 16:55:00 +0100</pubDate>
       <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>A practical introduction to using AI as an assistant when planning, drafting, and reviewing technical documentation.</description>
+      <description>A practical introduction to preparing documetation for an AI Audience</description>
     </item>
   </channel>
 </rss>
